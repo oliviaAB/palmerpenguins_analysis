@@ -11,6 +11,13 @@
 read_data <- function(file) {
   readr::read_csv(file, show_col_types = FALSE) |> 
     janitor::clean_names() |> 
+    assertr::verify(
+      assertr::has_all_names(
+        "species", "island", "date_egg", "sex", "body_mass_g", 
+        "culmen_length_mm", "culmen_depth_mm", "flipper_length_mm"
+      )
+    ) |> 
+    assertr::assert(rlang::is_integerish, body_mass_g) |> 
     dplyr::mutate(
       species = stringr::word(species, 1),
       year = lubridate::year(date_egg),
@@ -29,7 +36,8 @@ read_data <- function(file) {
       bill_depth_mm = culmen_depth_mm,
       flipper_length_mm
     ) |> 
-    tidyr::drop_na()
+    tidyr::drop_na() |> 
+    assertr::verify(flipper_length_mm > 0)
 }
 
 #' Violin plot of variable per island and sex
@@ -70,6 +78,6 @@ plot_bill_length_depth <- function(df) {
         )
     ) +
     ggplot2::geom_point() +
-    ggplot2::scale_colour_brewer(palette = "Set2") +
+    ggplot2::scale_colour_brewer(palette = "Set1") +
     ggplot2::theme_minimal()
 }

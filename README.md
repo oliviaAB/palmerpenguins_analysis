@@ -41,4 +41,10 @@ Originally published in: Gorman KB, Williams TD, Fraser WR (2014) Ecological Sex
 
 ## How to reproduce the analysis
 
-*to be filled*
+``` {r}
+# Install the necessary packages
+renv::restore()
+
+# Run the analysis pipeline
+targets::tar_make()
+```
