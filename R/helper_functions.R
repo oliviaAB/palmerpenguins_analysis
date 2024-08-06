@@ -1,6 +1,6 @@
 #' Read and clean data
 #' 
-#' Reads in the penguins data, renames and select relevant columns. The
+#' Reads in the penguins data, renames and selects relevant columns. The
 #' following transformations are applied to the data: 
 #' * only keep species common name
 #' * extract observation year
@@ -40,10 +40,10 @@ read_data <- function(file) {
     assertr::verify(flipper_length_mm > 0)
 }
 
-#' Violin plot of variable per island and sex
+#' Violin plot of variable per species and sex
 #'
 #' Visualise using violin plots the distribution of a categorical variable, with
-#' island on the x-axis and sex as colour.
+#' species on the x-axis and sex as colour.
 #'
 #' @param df Tibble, penguins data.
 #' @param yvar Unquoted expression, name of the variable in `df` to plot.
@@ -51,7 +51,7 @@ read_data <- function(file) {
 violin_plot <- function(df, yvar) {
   df |> 
     ggplot2::ggplot(
-      ggplot2::aes(x = island, colour = sex, fill = sex, y = {{ yvar }})
+      ggplot2::aes(x = species, colour = sex, fill = sex, y = {{ yvar }})
     ) +
     ggplot2::geom_violin(alpha = 0.3, scale = "width") +
     ggbeeswarm::geom_quasirandom(dodge.width = 0.9) +
@@ -62,8 +62,8 @@ violin_plot <- function(df, yvar) {
 
 #' Scatterplot of bill length vs depth
 #'
-#' Plots bill length (x-axis) against bill depth (y-axis), with island as colour
-#' and sex as point shape.
+#' Plots bill length (x-axis) against bill depth (y-axis), with species as
+#' colour and sex as point shape.
 #'
 #' @param df Tibble, penguins data.
 #' @returns a ggplot.
@@ -73,7 +73,7 @@ plot_bill_length_depth <- function(df) {
       ggplot2::aes(
         x = bill_length_mm, 
         y = bill_depth_mm, 
-        colour = island, 
+        colour = species, 
         shape = sex
         )
     ) +
