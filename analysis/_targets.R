@@ -1,4 +1,5 @@
 library(targets)
+library(tarchetypes)
 library(here)
 
 source(here("R/helper_functions.R"))
@@ -12,5 +13,7 @@ list(
   
   tar_target(flipper_length_plot, violin_plot(penguins_df, flipper_length_mm)),
   
-  tar_target(bill_scatterplot, plot_bill_length_depth(penguins_df))
+  tar_target(bill_scatterplot, plot_bill_length_depth(penguins_df)),
+  
+  tar_quarto(report, here("reports/palmerpenguins_report.qmd"))
 )

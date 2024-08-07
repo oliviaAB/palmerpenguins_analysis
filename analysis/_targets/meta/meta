@@ -1,4 +1,5 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+.Random.seed|object|736a0cbe54220450|||||||||||||||
 bill_scatterplot|stem|67a5d8fe03856ba8|f19079adf6896a05|39beed9b74e209bd|-688395017||t19941.9078627488s|c47fcfe2fc3abb29|119849|rds|local|vector|||0.3||
 body_mass_plot|stem|983b292397fae92e|81372e80a2d1fa44|3ab06925da0f90ce|997236767||t19941.9032410861s|187784267e08745f|144044|rds|local|vector|||0.27||
 flipper_length_plot|stem|c531bbf9f59edc3d|66d505fa517d8e98|3ab06925da0f90ce|-299726233||t19941.9032427047s|697045cf3caa945a|144138|rds|local|vector|||0.02||
@@ -6,4 +7,5 @@ penguins_df|stem|591f0ce99b47779d|f7571d1c7febb2ac|2c73c577ba0d4bc7|-483291185||
 penguins_raw_file|stem|eb638b4660a48058|e23d679514c9b066|2c530c1562a7fbd1|164581735|C:/Users/hrpoab/Desktop/GitHub/palmerpenguins_analysis/data/penguins_raw.csv|t19920.1743036609s|6ab629c4fdb6a9f3|53098|file|local|vector|||0||
 plot_bill_length_depth|function|501d2b3634113f53|||||||||||||||
 read_data|function|72d6d8f5b2d786f5|||||||||||||||
+report|stem|4579ae1878d15369|81b360bf70f60224|cc1094b9c658afe1|787668912|reports/palmerpenguins_report.docx*reports/palmerpenguins_report.qmd|t19942.0988300579s|ea3fc5bafb015565|36287|file|local|vector|||6.24||
 violin_plot|function|72d82b6d818493ad|||||||||||||||

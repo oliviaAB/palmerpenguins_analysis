@@ -1,0 +1,51 @@
+---
+title: "Analysis of penguins measurements from the palmerpenguins dataset"
+author: "Olivia Angelin-Bonnet"
+date: today
+format:
+  docx:
+    number-sections: true
+---
+
+```{r setup}
+#| include: false
+
+library(knitr)
+library(here)
+library(targets)
+
+opts_chunk$set(echo = FALSE)
+opts_knit$set(root.dir = here())
+```
+
+
+This project aims at understanding the differences between the size of three species of penguins (Adelie, Chinstrap and Gentoo) observed in the Palmer Archipelago, Antarctica, using data collected by Dr Kristen Gorman between 2007 and 2009.
+
+## Distribution of body mass and flipper length
+
+@fig-body-mass shows the distribution of body mass (in grams) across the three penguins species. We can see that on average, the Gentoo penguins are the heaviest, with Adelie and Chinstrap penguins more similar in terms of body mass. Within a species, the females are on average lighter than the males.
+
+```{r fig-body-mass}
+#| fig-cap: "Distribution of penguin body mass (g) across species and sex."
+
+tar_read(body_mass_plot)
+```
+
+Similarly, Gentoo penguins have the longest flippers on average (@fig-flipper-length), and Adelie penguins the shortest. Again, females from a species have shorter flippers on average than the males.
+
+```{r fig-flipper-length}
+#| fig-cap: "Distribution of penguin flipper length (mm) across species and sex."
+
+tar_read(flipper_length_plot)
+```
+
+
+## Association between bill length and depth
+
+In this dataset, bill measurements refer to measurements of the culmen, which is the upper ridge of the bill. There is a clear relationship between bill length and depth, but it is masked in the dataset by differences between species (@fig-bill-scatterplot), with Gentoo penguins exhibiting longer but shallower bills, and Adelie penguins shorter and deeper bills.
+
+```{r fig-bill-scatterplot}
+#| fig-cap: "Scatterplot of penguin bill length and depth."
+
+tar_read(bill_scatterplot)
+```
